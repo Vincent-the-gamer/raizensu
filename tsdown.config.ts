@@ -5,7 +5,7 @@ export default <Options> {
     "./src/{index, cli}.ts"
   ],
   clean: true,
-  format: ["esm","cjs"],
+  format: ["esm"],
   dts: true,
   minify: true,
   // compatible with __dirname in cjs and import.meta.url in mjs.

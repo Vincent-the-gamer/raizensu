@@ -1,9 +1,13 @@
-import { existsSync, mkdir, mkdirSync, readFileSync, writeFileSync } from "node:fs"
-import path from "node:path"
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
+import path, { dirname } from "node:path"
+import { fileURLToPath } from 'url';
+
+export const __filename = fileURLToPath(import.meta.url);
+export const __dirname = dirname(__filename);
 
 export enum License {
-    GPLv3,
-    MIT
+    GPLv3 = "GPLv3",
+    MIT = "MIT"
 }
 
 const templatePaths: Record<string, string> = {
@@ -11,14 +15,18 @@ const templatePaths: Record<string, string> = {
     MIT: path.resolve(__dirname, "./license-templates/MIT.txt"),
 }
 
+export interface Copyright {
+    year?: string,
+    author?: string,
+    link?: string
+}
+
 interface Config {
     license: License,
     filename?: string,
     cwd?: string,
     date?: string,
-    years?: string,
-    author?: string,
-    link?: string
+    copyrights: Copyright[]
 }
 
 function writeTargetFile(_path: string, fileName: string, content: string) {
@@ -31,29 +39,39 @@ function writeTargetFile(_path: string, fileName: string, content: string) {
 
 function loadLicense(templatePath: string, config: Config) {
     let _license = readFileSync(templatePath, "utf8")
+    
+    const copyright: string = config.copyrights.map(item => 
+        `Copyright (c) ${item.year} ${item.author} <${item.link}>`
+    ).join("\n")
+
     _license = _license.replace("${date}", config.date ?? "")
-                        .replace("${years}", config.years ?? "")
-                        .replace("${author}", config.author ?? "")
-                        .replace("${link}", config.link ?? "")
+                       .replace("${copyright}", copyright)
+
     return _license
 }
 
-export function generateLicense(config: Config) {
+export function generateLicense(config: Config): string {
     let license: string
 
     const writePath = config.cwd ?? path.resolve(__dirname)
+
+    console.log(path.resolve(__dirname))
+
+    const filename = config.filename ?? "generated.txt"
 
     switch (config.license) {
         case License.GPLv3:
             license = loadLicense(templatePaths.GPLv3, config)
             // Write license to file
-            writeTargetFile(writePath, config.filename ?? "generated.txt", license)
+            writeTargetFile(writePath, filename, license)
             break
         case License.MIT:
             license = loadLicense(templatePaths.MIT, config)
-            writeTargetFile(writePath, config.filename ?? "generated.txt", license)
+            writeTargetFile(writePath, filename, license)
             break
         default:
             break
     }
+
+    return `${writePath}${filename}` 
 }
