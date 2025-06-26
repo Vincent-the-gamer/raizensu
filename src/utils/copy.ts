@@ -1,6 +1,6 @@
 import { cp } from "node:fs";
 import { resolve } from "node:path";
-import { __dirname } from "./index";
+import { __dirname } from "../index";
 
 function copy() {
     cp(

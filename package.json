@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "tsx": "tsx",
-    "build": "tsdown && tsx src/copy.ts",
+    "build": "tsdown && tsx src/utils/copy.ts",
     "test": "vitest",
     "dep": "taze major -I",
     "lint:fix": "eslint . --fix",
