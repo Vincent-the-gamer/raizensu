@@ -20,6 +20,14 @@ Quickly generate license for repos. **(Raizensu = License)**
 
 This package provides both CLI and library usage.
 
+### Download-free CLI use
+
+See parameters at [Use as CLI](#use-as-cli)
+
+```shell
+npx raizensu generate ...
+```
+
 ### Library
 ```shell
 npm i raizensu
