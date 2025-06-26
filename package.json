@@ -1,38 +1,9 @@
 {
   "name": "raizensu",
-  "version": "0.1.0",
   "type": "module",
+  "version": "0.1.0",
   "description": "Quickly generate license for repos.",
   "author": "Vincent-the-gamer",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "bin": {
-    "raizensu": "bin/raizensu.js"
-  },
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      ".": [
-        "./dist/index.d.ts"
-      ]
-    }
-  },
-  "scripts": {
-    "tsx": "tsx",
-    "build": "tsdown",
-    "test": "vitest",
-    "dep": "taze major -I"
-  },
   "license": "MIT",
   "homepage": "https://github.com/Vincent-the-gamer/raizensu#readme",
   "repository": {
@@ -42,25 +13,59 @@
   "bugs": {
     "url": "https://github.com/Vincent-the-gamer/raizensu/issues"
   },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "bin": {
+    "raizensu": "bin/raizensu.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "tsx": "tsx",
+    "build": "tsdown",
+    "test": "vitest",
+    "dep": "taze major -I",
+    "lint:fix": "eslint . --fix",
+    "npm:login": "pnpm login --registry https://registry.npmjs.org",
+    "npm:publish": "pnpm publish --registry https://registry.npmjs.org"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.com",
     "access": "public"
-  },
-  "sideEffects": false,
-  "devDependencies": {
-    "@types/node": "^24.0.4",
-    "taze": "^19.1.0",
-    "tsdown": "^0.12.9",
-    "tsx": "^4.20.3",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
   },
   "dependencies": {
     "ansis": "^4.1.0",
     "cac": "^6.7.14",
     "consola": "^3.4.2",
-    "deepmerge-ts": "^7.1.5",
     "restore-cursor": "^5.1.0",
     "unconfig": "^7.3.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.16.1",
+    "@types/node": "^24.0.4",
+    "deepmerge-ts": "^7.1.5",
+    "eslint": "^9.29.0",
+    "taze": "^19.1.0",
+    "tsdown": "^0.12.9",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   }
 }

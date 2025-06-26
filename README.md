@@ -32,17 +32,17 @@ npm i raizensu -g
 You can set your config in `raizensu.config.[ts,js,mjs,mts,cjs,cts,json]`
 
 ```ts
-import { defineConfig } from "raizensu";
+import { defineConfig } from 'raizensu'
 
 export default defineConfig({
-    cwd: "./",
-    filename: "LICENSE.txt",
-    license: "MIT",
-    copyrights: [{
-        year: "2025-present",
-        author: "Vincent-the-gamer",
-        link: "https://github.com/Vincent-the-gamer"
-    }]
+  cwd: './',
+  filename: 'LICENSE.txt',
+  license: 'MIT',
+  copyrights: [{
+    year: '2025-present',
+    author: 'Vincent-the-gamer',
+    link: 'https://github.com/Vincent-the-gamer'
+  }]
 })
 ```
 
@@ -55,21 +55,21 @@ Example:
 if msg returns undefined, that means license failed to generate.
 
 ```ts
-import { Copyright, generateLicense } from "raizensu"
+import { Copyright, generateLicense } from 'raizensu'
 
 const msg = await generateLicense({
-    license: "GPLv3",
-    cwd: path.resolve(__dirname, "../"),
-    date: "June 26th, 2025",
-    copyrights: <Copyright[]>[{
-        year: "2025-present",
-        author: "Vincent-the-gamer",
-        link: "https://github.com/Vincent-the-gamer"
-    }, {
-        year: "2025-present",
-        author: "Random",
-        link: "https://github.com/random"
-    }]
+  license: 'GPLv3',
+  cwd: path.resolve(__dirname, '../'),
+  date: 'June 26th, 2025',
+  copyrights: <Copyright[]>[{
+    year: '2025-present',
+    author: 'Vincent-the-gamer',
+    link: 'https://github.com/Vincent-the-gamer'
+  }, {
+    year: '2025-present',
+    author: 'Random',
+    link: 'https://github.com/random'
+  }]
 })
 ```
 
