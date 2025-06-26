@@ -1,8 +1,5 @@
 # Raizensu
 
-> [!NOTE]
-> Work in progress, the first usable version will be released soon.
-
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![bundle][bundle-src]][bundle-href]
@@ -11,10 +8,12 @@
 
 Quickly generate license for repos. **(Raizensu = License)**
 
-> [!NOTE]
-> Currently supporting:
-> - MIT
-> - GPL v3
+## Supporting licenses
+
+For now:
+
+- MIT
+- GPL v3
 
 ## Installation
 
