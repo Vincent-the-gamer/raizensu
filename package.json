@@ -1,0 +1,56 @@
+{
+  "name": "raizensu",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Quickly generate license for repos.",
+  "author": "Vincent-the-gamer",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsdown",
+    "test": "vitest",
+    "dep": "taze major"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/Vincent-the-gamer/raizensu#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vincent-the-gamer/raizensu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vincent-the-gamer/raizensu/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com",
+    "access": "public"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@types/node": "^22.15.33",
+    "taze": "^19.1.0",
+    "tsdown": "^0.12.9",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
