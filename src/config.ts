@@ -1,7 +1,7 @@
 import type { Config } from './types'
 import { deepmerge } from 'deepmerge-ts'
 import { createConfigLoader } from 'unconfig'
-import { logger } from '../utils/logger'
+import { logger } from './utils/logger'
 
 export const defaultConfig: Partial<Config> = {
   cwd: process.cwd(),

@@ -3,7 +3,7 @@ import { bold, dim } from 'ansis'
 import cac from 'cac'
 import restoreCursor from 'restore-cursor'
 import pkgJson from '../package.json'
-import { logger } from '../utils/logger'
+import { logger } from './utils/logger'
 import { generateLicense } from './index'
 import { availableLicenseType } from './types'
 
@@ -24,17 +24,28 @@ cli.command('generate', `Generate license.`)
       `raizensu ${dim(`v${version}`)} : ${bold(`License generator`)}.`,
     )
 
+    let copyrightJson = copyrights
+
+    try {
+      if (copyrights) {
+        copyrightJson = JSON.parse(copyrights)
+      }
+    } catch (err) {
+      logger.error(err)
+    }
+
     const msg = await generateLicense({
       license: type,
       cwd,
       date,
-      copyrights: JSON.parse(copyrights),
+      copyrights: copyrightJson,
       filename,
     })
 
     if (msg !== '') {
       logger.success('Generated Type')
     }
+
   })
 
 cli.help()

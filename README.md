@@ -21,8 +21,11 @@ Quickly generate license for repos. **(Raizensu = License)**
 This package provides both CLI and library usage.
 
 ### Library
+
+Generally, we use this package as a dev dependency.
+
 ```shell
-npm i raizensu
+npm i raizensu -D
 ```
 
 ### CLI
@@ -71,7 +74,7 @@ import { Copyright, generateLicense } from 'raizensu'
 
 const msg = await generateLicense({
   license: 'GPLv3',
-  cwd: path.resolve(__dirname, '../'),
+  cwd: "./",
   date: 'June 26th, 2025',
   copyrights: <Copyright[]>[{
     year: '2025-present',

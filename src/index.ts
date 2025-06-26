@@ -2,7 +2,7 @@ import type { Config } from './types'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path, { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { logger } from 'tsdown'
+import { logger } from "./utils/logger"
 import { resolveConfig } from './config'
 import { availableLicenseType } from './types'
 

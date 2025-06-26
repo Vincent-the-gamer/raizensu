@@ -14,20 +14,14 @@
     "url": "https://github.com/Vincent-the-gamer/raizensu/issues"
   },
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
       ".": [
-        "./dist/index.d.ts"
+        "./dist/index.d.ts",
+        "./dist/cli.d.ts"
       ]
     }
   },
@@ -39,7 +33,7 @@
   ],
   "scripts": {
     "tsx": "tsx",
-    "build": "tsdown",
+    "build": "tsdown && tsx src/copy.ts",
     "test": "vitest",
     "dep": "taze major -I",
     "lint:fix": "eslint . --fix",
