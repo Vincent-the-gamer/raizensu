@@ -2,7 +2,7 @@ import type { Options } from 'tsdown'
 
 export default <Options> {
   entry: [
-    "./src/index.ts"
+    "./src/{index, cli}.ts"
   ],
   clean: true,
   format: ["esm","cjs"],

@@ -7,9 +7,11 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "raizensu": "bin/raizensu.js"
+  },
   "files": [
-    "dist",
-    "*.d.ts"
+    "dist"
   ],
   "exports": {
     ".": {
@@ -26,10 +28,10 @@
     }
   },
   "scripts": {
-    "dev": "tsx src/index.ts",
+    "tsx": "tsx",
     "build": "tsdown",
     "test": "vitest",
-    "dep": "taze major"
+    "dep": "taze major -I"
   },
   "license": "MIT",
   "homepage": "https://github.com/Vincent-the-gamer/raizensu#readme",
@@ -52,5 +54,11 @@
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "ansis": "^4.1.0",
+    "cac": "^6.7.14",
+    "consola": "^3.4.2",
+    "restore-cursor": "^5.1.0"
   }
 }

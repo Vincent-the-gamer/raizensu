@@ -8,7 +8,24 @@
 
 Quickly generate license for repos. **(Raizensu = License)**
 
+> [!NOTE]
+> Currently supporting:
+> - MIT
+> - GPL v3
+
 ## Installation
+
+This package provides both CLI and library usage.
+
+### Library
+```shell
+npm i raizensu
+```
+
+### CLI
+```shell
+npm i raizensu -g
+```
 
 ## License
 
