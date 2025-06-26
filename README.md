@@ -1,5 +1,8 @@
 # Raizensu
 
+> [!NOTE]
+> Work in progress, the first usable version will be released soon.
+
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![bundle][bundle-src]][bundle-href]
@@ -37,6 +40,7 @@ import { defineConfig } from 'raizensu'
 export default defineConfig({
   cwd: './',
   filename: 'LICENSE.txt',
+  date: 'June 26th, 2025', // not shown in MIT
   license: 'MIT',
   copyrights: [{
     year: '2025-present',
@@ -94,7 +98,7 @@ Example:
 raizensu generate
 
 # This command generates a license with specified config.
-#  --type, -t <type>: License type.
+# --type, -t <type>: License type.
 # --cwd, -c <cwd>, Choose the path you want to generate your file.
 # --date, -d <date>", Licese create date, can be any format, like 2025-06-26.
 # --copyrights, -C <copyrights>, Copyrights, an array contains: year, author, link.
