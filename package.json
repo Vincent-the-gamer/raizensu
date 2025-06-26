@@ -48,7 +48,7 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "@types/node": "^22.15.33",
+    "@types/node": "^24.0.4",
     "taze": "^19.1.0",
     "tsdown": "^0.12.9",
     "tsx": "^4.20.3",
@@ -59,6 +59,8 @@
     "ansis": "^4.1.0",
     "cac": "^6.7.14",
     "consola": "^3.4.2",
-    "restore-cursor": "^5.1.0"
+    "deepmerge-ts": "^7.1.5",
+    "restore-cursor": "^5.1.0",
+    "unconfig": "^7.3.2"
   }
 }

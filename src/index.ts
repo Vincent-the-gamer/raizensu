@@ -1,32 +1,19 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path, { dirname } from "node:path"
 import { fileURLToPath } from 'url';
+import { availableLicenseType, Config } from "./types";
+import { defaultConfig, resolveConfig } from "./config";
+import { logger } from "tsdown";
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
 
-export enum License {
-    GPLv3 = "GPLv3",
-    MIT = "MIT"
-}
+export * from "./config"
+export * from "./types"
 
 const templatePaths: Record<string, string> = {
     GPLv3: path.resolve(__dirname, "./license-templates/GPLv3.txt"),
     MIT: path.resolve(__dirname, "./license-templates/MIT.txt"),
-}
-
-export interface Copyright {
-    year?: string,
-    author?: string,
-    link?: string
-}
-
-interface Config {
-    license: License,
-    filename?: string,
-    cwd?: string,
-    date?: string,
-    copyrights: Copyright[]
 }
 
 function writeTargetFile(_path: string, fileName: string, content: string) {
@@ -39,39 +26,50 @@ function writeTargetFile(_path: string, fileName: string, content: string) {
 
 function loadLicense(templatePath: string, config: Config) {
     let _license = readFileSync(templatePath, "utf8")
-    
-    const copyright: string = config.copyrights.map(item => 
-        `Copyright (c) ${item.year} ${item.author} <${item.link}>`
-    ).join("\n")
+
+    let copyrightArray: string[] = config.copyrights.filter(item => item.author !== undefined)
+        .map(item => `Copyright (c) ${item.year} ${item.author} <${item.link}>`)
+
+    // distinct
+    copyrightArray = Array.from(new Set(copyrightArray))
+
+    const copyright = copyrightArray.join("\n")
 
     _license = _license.replace("${date}", config.date ?? "")
-                       .replace("${copyright}", copyright)
+        .replace("${copyright}", copyright)
 
     return _license
 }
 
-export function generateLicense(config: Config): string {
+export async function generateLicense(config: Partial<Config>, configCwd?: string): Promise<string> {
     let license: string
 
-    const writePath = config.cwd ?? path.resolve(__dirname)
+    const resolvedConfig: Config = await resolveConfig(config as Config, configCwd)
 
-    console.log(path.resolve(__dirname))
+    const writePath = resolvedConfig.cwd!
+    const filename = resolvedConfig.filename!
 
-    const filename = config.filename ?? "generated.txt"
+    if (!resolvedConfig.license) {
+        logger.error("Please give a license type, like MIT, GPLv3...")
+        return ""
+    } else if (!availableLicenseType.includes(resolvedConfig.license)) {
+        logger.error("License type not supported!")
+        return ""
+    }
 
-    switch (config.license) {
-        case License.GPLv3:
-            license = loadLicense(templatePaths.GPLv3, config)
+    switch (resolvedConfig.license) {
+        case "GPLv3":
+            license = loadLicense(templatePaths.GPLv3, resolvedConfig)
             // Write license to file
             writeTargetFile(writePath, filename, license)
             break
-        case License.MIT:
-            license = loadLicense(templatePaths.MIT, config)
+        case "MIT":
+            license = loadLicense(templatePaths.MIT, resolvedConfig)
             writeTargetFile(writePath, filename, license)
             break
         default:
             break
     }
 
-    return `${writePath}${filename}` 
+    return `${writePath}${filename}`
 }
