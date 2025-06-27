@@ -15,6 +15,10 @@ export * from './types'
 const templatePaths: Record<string, string> = {
   GPLv3: path.resolve(__dirname, './license-templates/GPLv3.txt'),
   MIT: path.resolve(__dirname, './license-templates/MIT.txt'),
+  Apache2: path.resolve(__dirname, './license-templates/Apache-2.0.txt'),
+  LGPLv3: path.resolve(__dirname, './license-templates/LGPLv3.txt'),
+  Anti996_zh: path.resolve(__dirname, './license-templates/Anti996-zh_CN.txt'),
+  Anti996_en: path.resolve(__dirname, './license-templates/Anti996-en.txt')
 }
 
 function writeTargetFile(_path: string, fileName: string, content: string) {
@@ -29,7 +33,7 @@ function loadLicense(templatePath: string, config: Config) {
   let _license = readFileSync(templatePath, 'utf8')
 
   let copyrightArray: string[] = config.copyrights.filter(item => item.author !== undefined)
-    .map(item => `Copyright (c) ${item.year} ${item.author} <${item.link}>`)
+    .map(item => `Copyright (C) ${item.year} ${item.author} <${item.link}>`)
 
   // distinct
   copyrightArray = Array.from(new Set(copyrightArray))
@@ -67,6 +71,25 @@ export async function generateLicense(config: Partial<Config>, configCwd?: strin
       break
     case 'MIT':
       license = loadLicense(templatePaths.MIT, resolvedConfig)
+      writeTargetFile(writePath, filename, license)
+      break
+    case 'Apache2':
+      license = loadLicense(templatePaths.Apache2, resolvedConfig)
+      writeTargetFile(writePath, filename, license)
+      break
+    case 'LGPLv3':
+      license = loadLicense(templatePaths.LGPLv3, resolvedConfig)
+      writeTargetFile(writePath, filename, license)
+      break
+    case 'Anti996_zh':
+      license = loadLicense(templatePaths.Anti996_zh, resolvedConfig)
+      license = license.replace("Copyright", "版权所有")
+                       .replace("present", "现在")
+                       .replace("PRESENT", "现在")
+      writeTargetFile(writePath, filename, license)
+      break
+    case 'Anti996_en':
+      license = loadLicense(templatePaths.Anti996_en, resolvedConfig)
       writeTargetFile(writePath, filename, license)
       break
     default:

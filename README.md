@@ -2,8 +2,6 @@
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![bundle][bundle-src]][bundle-href]
-[![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
 Quickly generate license for repos. **(Raizensu = License)**
@@ -13,7 +11,11 @@ Quickly generate license for repos. **(Raizensu = License)**
 For now:
 
 - MIT
-- GPL v3
+- GPLv3  (GPL v3)
+- Apache2 (Apache 2.0)
+- LGPLv3 (LGPL v3)
+- Anti996_zh (Anti996 license in Chinese)
+- Anti996_en (Anti996 license in English)
 
 ## Installation
 
@@ -66,7 +68,7 @@ File will be generated in `./target/LICENSE.txt`
 
 Example:
 
-if msg returns undefined, that means license failed to generate.
+if msg returns empty string, that means license failed to generate.
 
 ```ts
 import { Copyright, generateLicense } from 'raizensu'
@@ -95,6 +97,7 @@ Result:
 Copyright (c) 2025-present Vincent-the-gamer <https://github.com/Vincent-the-gamer>
 Copyright (c) 2025-present Random <https://github.com/random>
 
+Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
@@ -120,7 +123,10 @@ raizensu generate -t GPLv3 -c ./ -d June\ 26th \ 2025 -C '[{ "author": "Vincent-
 
 ## License
 
-[MIT](./LICENSE) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
+This repo is MIT & Anti996 licensed:
+
+[MIT](./LICENSE-MIT) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
+[Anti996](./LICENSE-Anti996) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
 
 <!-- Badges -->
 
@@ -128,9 +134,6 @@ raizensu generate -t GPLv3 -c ./ -d June\ 26th \ 2025 -C '[{ "author": "Vincent-
 [npm-version-href]: https://npmjs.com/package/raizensu
 [npm-downloads-src]: https://img.shields.io/npm/dm/raizensu?style=flat&colorA=080f12&colorB=1fa669
 [npm-downloads-href]: https://npmjs.com/package/raizensu
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/raizensu?style=flat&colorA=080f12&colorB=1fa669&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=raizensu
 [license-src]: https://img.shields.io/github/license/Vincent-the-gamer/raizensu.svg?style=flat&colorA=080f12&colorB=1fa669
 [license-href]: https://github.com/Vincent-the-gamer/raizensu/blob/main/LICENSE
 [jsdocs-src]: https://img.shields.io/badge/jsdocs-reference-080f12?style=flat&colorA=080f12&colorB=1fa669
-[jsdocs-href]: https://www.jsdocs.io/package/raizensu

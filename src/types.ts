@@ -12,4 +12,4 @@ export interface Config {
   copyrights: Copyright[]
 }
 
-export const availableLicenseType = ['GPLv3', 'MIT']
+export const availableLicenseType = ['GPLv3', 'MIT', 'Apache2', 'LGPLv3', 'Anti996_zh', 'Anti996_en']
