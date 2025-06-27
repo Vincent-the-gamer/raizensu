@@ -29,7 +29,8 @@
     "raizensu": "bin/raizensu.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "COPYING"
   ],
   "scripts": {
     "tsx": "tsx",
