@@ -121,11 +121,14 @@ raizensu generate -t MIT -c ./ -C '[{ "author": "Vincent-the-gamer" }]' -n "MIT.
 raizensu generate -t GPLv3 -c ./ -d June\ 26th \ 2025 -C '[{ "author": "Vincent-the-gamer" }]' -n "GPLv3.txt"
 ```
 
-## License
+## Licenses
 
-This repo is MIT & Anti996 licensed:
+This work is dual-licensed under MIT and Anti996 (or any later version).
+
+`SPDX-License-Identifier: MIT AND Anti996`
 
 [MIT](./LICENSE-MIT) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
+
 [Anti996](./LICENSE-Anti996) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
 
 <!-- Badges -->
