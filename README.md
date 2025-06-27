@@ -127,9 +127,9 @@ This work is dual-licensed under MIT and Anti996 (or any later version).
 
 `SPDX-License-Identifier: MIT AND Anti996`
 
-[MIT](./LICENSE-MIT) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
+[MIT](./LICENSE) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
 
-[Anti996](./LICENSE-Anti996) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
+[Anti996](./COPYING) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
 
 <!-- Badges -->
 
