@@ -52,7 +52,7 @@ import { defineConfig } from 'raizensu'
 export default defineConfig({
   cwd: './',
   filename: 'LICENSE.txt',
-  date: 'June 26th, 2025', // not shown in MIT
+  date: 'June 26th, 2025', // not shown in MIT, BSD-3-Clause, Anti996
   license: 'MIT',
   copyrights: [{
     year: '2025-present',
@@ -124,8 +124,6 @@ raizensu generate -t GPLv3 -c ./ -d June\ 26th \ 2025 -C '[{ "author": "Vincent-
 ## Licenses
 
 This work is dual-licensed under MIT and Anti996 (or any later version).
-
-`SPDX-License-Identifier: MIT AND Anti996`
 
 [MIT](./LICENSE) License © 2025-PRESENT [Vincent-the-gamer](https://github.com/Vincent-the-gamer)
 

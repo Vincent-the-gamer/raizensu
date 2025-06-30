@@ -18,7 +18,8 @@ const templatePaths: Record<string, string> = {
   Apache2: path.resolve(__dirname, './license-templates/Apache-2.0.txt'),
   LGPLv3: path.resolve(__dirname, './license-templates/LGPLv3.txt'),
   Anti996_zh: path.resolve(__dirname, './license-templates/Anti996-zh_CN.txt'),
-  Anti996_en: path.resolve(__dirname, './license-templates/Anti996-en.txt')
+  Anti996_en: path.resolve(__dirname, './license-templates/Anti996-en.txt'),
+  BSD_3_Clause: path.resolve(__dirname, './license-templates/BSD-3-Clause.txt'),
 }
 
 function writeTargetFile(_path: string, fileName: string, content: string) {
@@ -90,6 +91,10 @@ export async function generateLicense(config: Partial<Config>, configCwd?: strin
       break
     case 'Anti996_en':
       license = loadLicense(templatePaths.Anti996_en, resolvedConfig)
+      writeTargetFile(writePath, filename, license)
+      break
+    case 'BSD-3-Clause':
+      license = loadLicense(templatePaths.BSD_3_Clause, resolvedConfig)
       writeTargetFile(writePath, filename, license)
       break
     default:
