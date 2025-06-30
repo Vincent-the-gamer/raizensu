@@ -43,7 +43,7 @@ cli.command('generate', `Generate license.`)
     })
 
     if (msg !== '') {
-      logger.success('Generated Type')
+      logger.success(`Generated ${bold(type)} license to ${cwd}`)
     }
 
   })
