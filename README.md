@@ -107,7 +107,7 @@ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
 ### Use as CLI
 Example:
 ```shell
-# This command generates a MIT license with your config in `raizensu.config.ts`
+# This command generates a license with your config in `raizensu.config.ts`
 raizensu generate
 
 # This command generates a license with specified config.
