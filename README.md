@@ -16,6 +16,15 @@ For now:
 - LGPLv3 (LGPL v3)
 - Anti996_zh (Anti996 license in Chinese)
 - Anti996_en (Anti996 license in English)
+- BSD-3-Clause
+
+## Use CLI Without Installation
+
+See parameters at [Use as CLI](#use-as-cli)
+
+```shell
+npx raizensu generate ...
+```
 
 ## Installation
 
@@ -32,14 +41,6 @@ npm i raizensu -D
 ### CLI
 ```shell
 npm i raizensu -g
-```
-
-## Non-install CLI use
-
-See parameters at [Use as CLI](#use-as-cli)
-
-```shell
-npx raizensu generate ...
 ```
 
 ## Usage
