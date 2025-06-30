@@ -92,13 +92,13 @@ const msg = await generateLicense({
 
 Result:
 ```
-    GNU GENERAL PUBLIC LICENSE
-    Version 3, June 26th, 2025
-
 Copyright (c) 2025-present Vincent-the-gamer <https://github.com/Vincent-the-gamer>
 Copyright (c) 2025-present Random <https://github.com/random>
 
-Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+    GNU GENERAL PUBLIC LICENSE
+    Version 3, June 26th, 2025
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
