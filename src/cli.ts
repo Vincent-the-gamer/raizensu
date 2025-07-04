@@ -3,9 +3,9 @@ import { bold, dim } from 'ansis'
 import cac from 'cac'
 import restoreCursor from 'restore-cursor'
 import pkgJson from '../package.json'
-import { logger } from './utils/logger'
 import { generateLicense } from './index'
 import { availableLicenseType } from './types'
+import { logger } from './utils/logger'
 
 const cli: CAC = cac('raizensu')
 
@@ -30,7 +30,8 @@ cli.command('generate', `Generate license.`)
       if (copyrights) {
         copyrightJson = JSON.parse(copyrights)
       }
-    } catch (err) {
+    }
+    catch (err) {
       logger.error(err)
     }
 
@@ -45,7 +46,6 @@ cli.command('generate', `Generate license.`)
     if (msg !== '') {
       logger.success(`Generated ${bold(type)} license to ${cwd}`)
     }
-
   })
 
 cli.help()

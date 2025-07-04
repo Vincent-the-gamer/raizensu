@@ -2,9 +2,9 @@ import type { Config } from './types'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path, { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { logger } from "./utils/logger"
 import { resolveConfig } from './config'
 import { availableLicenseType } from './types'
+import { logger } from './utils/logger'
 
 export const __filename = fileURLToPath(import.meta.url)
 export const __dirname = dirname(__filename)
@@ -84,9 +84,9 @@ export async function generateLicense(config: Partial<Config>, configCwd?: strin
       break
     case 'Anti996_zh':
       license = loadLicense(templatePaths.Anti996_zh, resolvedConfig)
-      license = license.replace("Copyright", "版权所有")
-                       .replace("present", "现在")
-                       .replace("PRESENT", "现在")
+      license = license.replace('Copyright', '版权所有')
+        .replace('present', '现在')
+        .replace('PRESENT', '现在')
       writeTargetFile(writePath, filename, license)
       break
     case 'Anti996_en':

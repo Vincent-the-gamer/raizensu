@@ -76,7 +76,7 @@ import { Copyright, generateLicense } from 'raizensu'
 
 const msg = await generateLicense({
   license: 'GPLv3',
-  cwd: "./",
+  cwd: './',
   date: 'June 26th, 2025',
   copyrights: <Copyright[]>[{
     year: '2025-present',

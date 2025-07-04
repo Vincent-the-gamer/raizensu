@@ -1,7 +1,7 @@
 {
   "name": "raizensu",
   "type": "module",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Quickly generate license for repos.",
   "author": "Vincent-the-gamer",
   "license": "MIT",
@@ -29,8 +29,8 @@
     "raizensu": "bin/raizensu.js"
   },
   "files": [
-    "dist",
-    "COPYING"
+    "COPYING",
+    "dist"
   ],
   "scripts": {
     "tsx": "tsx",
@@ -53,10 +53,10 @@
     "unconfig": "^7.3.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.16.1",
-    "@types/node": "^24.0.4",
+    "@antfu/eslint-config": "^4.16.2",
+    "@types/node": "^24.0.10",
     "deepmerge-ts": "^7.1.5",
-    "eslint": "^9.29.0",
+    "eslint": "^9.30.1",
     "taze": "^19.1.0",
     "tsdown": "^0.12.9",
     "tsx": "^4.20.3",
